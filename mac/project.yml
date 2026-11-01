@@ -1,0 +1,45 @@
+name: Helm
+configFiles:
+  Debug: ../ios/Config/Helm.xcconfig
+  Release: ../ios/Config/Helm.xcconfig
+options:
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  Helm:
+    type: application
+    platform: macOS
+    sources:
+      - Helm
+      - path: ../ios/Helm/Fonts
+        buildPhase: resources
+    entitlements:
+      path: Helm/Helm.entitlements
+      properties: {}
+    settings:
+      base:
+        PRODUCT_NAME: Helm
+        PRODUCT_BUNDLE_IDENTIFIER: $(HELM_BUNDLE_PREFIX).helm.mac
+        ENABLE_HARDENED_RUNTIME: YES
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        COMBINE_HIDPI_IMAGES: YES
+    info:
+      path: Helm/Info.plist
+      properties:
+        CFBundleDisplayName: Helm
+        LSUIElement: true
+        LSApplicationCategoryType: public.app-category.developer-tools
+        ATSApplicationFontsPath: .
+        NSHumanReadableCopyright: ""
+    postBuildScripts:
+      - name: Embed hub
+        script: '"$SRCROOT/scripts/embed-hub.sh"'
+        basedOnDependencyAnalysis: false

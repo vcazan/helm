@@ -1,0 +1,23 @@
+{
+  "name": "helm-hub",
+  "version": "1.0.0",
+  "description": "Helm hub: control Cursor agents from your iPhone",
+  "type": "module",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/main.ts start",
+    "pair": "node --disable-warning=ExperimentalWarning src/main.ts pair",
+    "login": "node --disable-warning=ExperimentalWarning src/main.ts login",
+    "status": "node --disable-warning=ExperimentalWarning src/main.ts status",
+    "demo": "node demo/server.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cursor/sdk": "^1.2.0",
+    "qrcode-terminal": "^0.12.0",
+    "ws": "^8.22.0",
+    "zod": "^4.6.7"
+  }
+}

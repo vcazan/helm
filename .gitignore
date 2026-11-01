@@ -1,0 +1,11 @@
+node_modules/
+ios/build/
+ios/Helm.xcodeproj/xcuserdata/
+ios/Helm.xcodeproj/project.xcworkspace/xcuserdata/
+.DS_Store
+*.p8
+ios/Config/Local.xcconfig
+
+# Mac app: downloaded Node runtime
+mac/vendor/
+mac/build/

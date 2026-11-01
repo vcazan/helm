@@ -1,0 +1,7 @@
+// Signing and bundle IDs. Put your own values in Local.xcconfig (git ignores it), e.g.
+//   DEVELOPMENT_TEAM = ABCDE12345
+//   HELM_BUNDLE_PREFIX = com.yourname
+DEVELOPMENT_TEAM =
+HELM_BUNDLE_PREFIX = com.example
+
+#include? "Local.xcconfig"

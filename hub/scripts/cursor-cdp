@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# Launch Cursor with Chrome DevTools Protocol enabled so the Helm hub can drive its chats.
+set -euo pipefail
+
+CDP_PORT="${CURSOR_CDP_PORT:-9222}"
+CDP_URL="http://127.0.0.1:${CDP_PORT}/json"
+CURSOR_APP="/Applications/Cursor.app"
+CURSOR_BIN="${CURSOR_APP}/Contents/MacOS/Cursor"
+
+cdp_up() {
+  curl -sf -m 1 "${CDP_URL}" >/dev/null 2>&1
+}
+
+cursor_running() {
+  osascript -e 'tell application "System Events" to (name of processes) contains "Cursor"' 2>/dev/null | grep -qi true
+}
+
+if [[ ! -x "${CURSOR_BIN}" ]]; then
+  echo "Cursor is not installed at ${CURSOR_APP}" >&2
+  exit 1
+fi
+
+if cdp_up; then
+  open -a Cursor
+  echo "Cursor CDP already listening on port ${CDP_PORT}."
+  exit 0
+fi
+
+if cursor_running; then
+  cat >&2 <<EOF
+Cursor is already running without --remote-debugging-port=${CDP_PORT}.
+Chromium only binds that port at process start, so this session cannot be patched.
+
+Quit Cursor fully (Cmd+Q, not just closing windows), then run:
+  cursor-cdp
+EOF
+  exit 2
+fi
+
+open -a Cursor --args --remote-debugging-port="${CDP_PORT}" "$@"
+echo "Launched Cursor with --remote-debugging-port=${CDP_PORT}."
+echo "Verify with: curl -sS ${CDP_URL}"

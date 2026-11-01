@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		077EBD28D9FA6B0D1088185C /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81389642F5DE5D6A4D319EAC /* SetupView.swift */; };
+		1D5629B6E1274AF29512C7FA /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27F5414993D1A3608A46382 /* Hub.swift */; };
+		1E7262908B79F0140586B253 /* JetBrainsMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFF1089C103A56A38575A66E /* JetBrainsMono-Medium.ttf */; };
+		269328DE3FFE7B4F53AB4A53 /* PairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9878FD6579C4686C41068 /* PairView.swift */; };
+		44607251A96238BFC2230034 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B610A45B3D673E1BBF265B /* Theme.swift */; };
+		5D2400322C091EFEB50F9379 /* CursorLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF36844026184ADE3CE9D48 /* CursorLink.swift */; };
+		6FFEBEDBE63BF0A3444F2349 /* HelmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E910325AFE50F60C36C51 /* HelmApp.swift */; };
+		7DEA34E73C8225A26D703D3F /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDFDA34E85AB51F9C4EC735C /* Inter-Bold.ttf */; };
+		920E23CFEB9BA78C38B5CB3C /* JetBrainsMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E26997FE46E7445A7D242A0 /* JetBrainsMono-Regular.ttf */; };
+		B19C30E8CA61999B27B6B730 /* MenuPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AF7734A686C94E1095278 /* MenuPanel.swift */; };
+		B19E17154B5A7E257C7F83F5 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 185DF2888847FE788CEEB536 /* Inter-SemiBold.ttf */; };
+		B3F0219103A392A4BB78A584 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89146E835A38CCA921167D6F /* Inter-Regular.ttf */; };
+		C5F842C14A456091C1B1EC87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F44550306FA5A33BEFC537 /* Assets.xcassets */; };
+		EC80FF5BE75978417838FC51 /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943156F2241381C477DDA753 /* Snapshots.swift */; };
+		F56927CB693416CF89C04529 /* PushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8201139F27296C13B0127D /* PushView.swift */; };
+		F7EFAAD8140CFA45484A40F6 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED419AD07CD0FD4D760B8615 /* Inter-Medium.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		008B77090D3495B9647A8824 /* Helm.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Helm.xcconfig; sourceTree = "<group>"; };
+		0E26997FE46E7445A7D242A0 /* JetBrainsMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Regular.ttf"; sourceTree = "<group>"; };
+		185DF2888847FE788CEEB536 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		2D8201139F27296C13B0127D /* PushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushView.swift; sourceTree = "<group>"; };
+		53B738B6092D28116BB8EB0D /* Helm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Helm.entitlements; sourceTree = "<group>"; };
+		81389642F5DE5D6A4D319EAC /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
+		82B610A45B3D673E1BBF265B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		88F44550306FA5A33BEFC537 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89146E835A38CCA921167D6F /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		8D835BB050C165B2974D4A41 /* Helm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Helm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		943156F2241381C477DDA753 /* Snapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshots.swift; sourceTree = "<group>"; };
+		9D8E910325AFE50F60C36C51 /* HelmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelmApp.swift; sourceTree = "<group>"; };
+		AB214CF83D872AB067390BF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		ACF9878FD6579C4686C41068 /* PairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairView.swift; sourceTree = "<group>"; };
+		BDFDA34E85AB51F9C4EC735C /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		C99AF7734A686C94E1095278 /* MenuPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPanel.swift; sourceTree = "<group>"; };
+		DFF1089C103A56A38575A66E /* JetBrainsMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Medium.ttf"; sourceTree = "<group>"; };
+		ED419AD07CD0FD4D760B8615 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		EDF36844026184ADE3CE9D48 /* CursorLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorLink.swift; sourceTree = "<group>"; };
+		F27F5414993D1A3608A46382 /* Hub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hub.swift; sourceTree = "<group>"; };
+		F9072B41CF29A91B3EDAFE1A /* Node.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Node.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		21FB4D460F2E117767F700E3 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				2410B436F565B52C872D8A22 /* Config */,
+				F4F326316E11572026995AD8 /* Helm */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		2410B436F565B52C872D8A22 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				008B77090D3495B9647A8824 /* Helm.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		494352EE369BB11D85D6FD93 /* Helm */ = {
+			isa = PBXGroup;
+			children = (
+				88F44550306FA5A33BEFC537 /* Assets.xcassets */,
+				EDF36844026184ADE3CE9D48 /* CursorLink.swift */,
+				53B738B6092D28116BB8EB0D /* Helm.entitlements */,
+				9D8E910325AFE50F60C36C51 /* HelmApp.swift */,
+				F27F5414993D1A3608A46382 /* Hub.swift */,
+				AB214CF83D872AB067390BF2 /* Info.plist */,
+				C99AF7734A686C94E1095278 /* MenuPanel.swift */,
+				F9072B41CF29A91B3EDAFE1A /* Node.entitlements */,
+				ACF9878FD6579C4686C41068 /* PairView.swift */,
+				2D8201139F27296C13B0127D /* PushView.swift */,
+				81389642F5DE5D6A4D319EAC /* SetupView.swift */,
+				943156F2241381C477DDA753 /* Snapshots.swift */,
+				82B610A45B3D673E1BBF265B /* Theme.swift */,
+			);
+			path = Helm;
+			sourceTree = "<group>";
+		};
+		8B6EFA6A622003CF4A34CB49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D835BB050C165B2974D4A41 /* Helm.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98010232544545CF0F2185F4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BDFDA34E85AB51F9C4EC735C /* Inter-Bold.ttf */,
+				ED419AD07CD0FD4D760B8615 /* Inter-Medium.ttf */,
+				89146E835A38CCA921167D6F /* Inter-Regular.ttf */,
+				185DF2888847FE788CEEB536 /* Inter-SemiBold.ttf */,
+				DFF1089C103A56A38575A66E /* JetBrainsMono-Medium.ttf */,
+				0E26997FE46E7445A7D242A0 /* JetBrainsMono-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BDA4DACE326410DF3CFE0876 = {
+			isa = PBXGroup;
+			children = (
+				ECCBBFE7ABF00A73B5CF94E7 /* cursor-ultimate-remote */,
+				494352EE369BB11D85D6FD93 /* Helm */,
+				8B6EFA6A622003CF4A34CB49 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECCBBFE7ABF00A73B5CF94E7 /* cursor-ultimate-remote */ = {
+			isa = PBXGroup;
+			children = (
+				21FB4D460F2E117767F700E3 /* ios */,
+			);
+			name = "cursor-ultimate-remote";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F4F326316E11572026995AD8 /* Helm */ = {
+			isa = PBXGroup;
+			children = (
+				98010232544545CF0F2185F4 /* Fonts */,
+			);
+			path = Helm;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		99E4676A382CEA1F9A5AE6C1 /* Helm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90611137D8FBB59A950968FA /* Build configuration list for PBXNativeTarget "Helm" */;
+			buildPhases = (
+				444DAB170895784CF27DEA5D /* Sources */,
+				88A04A27B030E7AC82EA7871 /* Resources */,
+				7456B07AE7C557FB69888F71 /* Embed hub */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Helm;
+			packageProductDependencies = (
+			);
+			productName = Helm;
+			productReference = 8D835BB050C165B2974D4A41 /* Helm.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5945378979AE75AA69216F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					99E4676A382CEA1F9A5AE6C1 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7A052CCCA135773DE724008E /* Build configuration list for PBXProject "Helm" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = BDA4DACE326410DF3CFE0876;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8B6EFA6A622003CF4A34CB49 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				99E4676A382CEA1F9A5AE6C1 /* Helm */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88A04A27B030E7AC82EA7871 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5F842C14A456091C1B1EC87 /* Assets.xcassets in Resources */,
+				7DEA34E73C8225A26D703D3F /* Inter-Bold.ttf in Resources */,
+				F7EFAAD8140CFA45484A40F6 /* Inter-Medium.ttf in Resources */,
+				B3F0219103A392A4BB78A584 /* Inter-Regular.ttf in Resources */,
+				B19E17154B5A7E257C7F83F5 /* Inter-SemiBold.ttf in Resources */,
+				1E7262908B79F0140586B253 /* JetBrainsMono-Medium.ttf in Resources */,
+				920E23CFEB9BA78C38B5CB3C /* JetBrainsMono-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7456B07AE7C557FB69888F71 /* Embed hub */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Embed hub";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SRCROOT/scripts/embed-hub.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		444DAB170895784CF27DEA5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D2400322C091EFEB50F9379 /* CursorLink.swift in Sources */,
+				6FFEBEDBE63BF0A3444F2349 /* HelmApp.swift in Sources */,
+				1D5629B6E1274AF29512C7FA /* Hub.swift in Sources */,
+				B19C30E8CA61999B27B6B730 /* MenuPanel.swift in Sources */,
+				269328DE3FFE7B4F53AB4A53 /* PairView.swift in Sources */,
+				F56927CB693416CF89C04529 /* PushView.swift in Sources */,
+				077EBD28D9FA6B0D1088185C /* SetupView.swift in Sources */,
+				EC80FF5BE75978417838FC51 /* Snapshots.swift in Sources */,
+				44607251A96238BFC2230034 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0541A2A153D489C6172FC179 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Helm/Helm.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = Helm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(HELM_BUNDLE_PREFIX).helm.mac";
+				PRODUCT_NAME = Helm;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		27FE985DE457A258418B9760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 008B77090D3495B9647A8824 /* Helm.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.10;
+			};
+			name = Release;
+		};
+		543D6AA0358D9EA5F10CE252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Helm/Helm.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = Helm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(HELM_BUNDLE_PREFIX).helm.mac";
+				PRODUCT_NAME = Helm;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7FD100F4BF5C5011F6807F99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 008B77090D3495B9647A8824 /* Helm.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.10;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A052CCCA135773DE724008E /* Build configuration list for PBXProject "Helm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FD100F4BF5C5011F6807F99 /* Debug */,
+				27FE985DE457A258418B9760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		90611137D8FBB59A950968FA /* Build configuration list for PBXNativeTarget "Helm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				543D6AA0358D9EA5F10CE252 /* Debug */,
+				0541A2A153D489C6172FC179 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5945378979AE75AA69216F7 /* Project object */;
+}
