@@ -59,7 +59,7 @@ helm://pair?url=http%3A%2F%2F127.0.0.1%3A7879&token=demo&name=Studio%20Mac
 You need an Apple silicon Mac, [Cursor](https://cursor.com) signed in, [Tailscale](https://tailscale.com/download) connected on both the Mac and the iPhone with the same account, and Xcode to build the app.
 
 ```sh
-git clone https://github.com/<you>/helm.git && cd helm
+git clone https://github.com/vcazan/helm.git && cd helm
 mac/scripts/build.sh --install
 ```
 
