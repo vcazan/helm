@@ -56,14 +56,25 @@ helm://pair?url=http%3A%2F%2F127.0.0.1%3A7879&token=demo&name=Studio%20Mac
 
 ## Set up your Mac
 
-You need an Apple silicon Mac, [Cursor](https://cursor.com) signed in, [Tailscale](https://tailscale.com/download) connected on both the Mac and the iPhone with the same account, and Xcode to build the app.
+You need an Apple silicon Mac, [Cursor](https://cursor.com) signed in, and [Tailscale](https://tailscale.com/download) connected on both the Mac and the iPhone with the same account.
+
+**Download:** get `Helm-<version>.dmg` from [Releases](https://github.com/vcazan/helm/releases/latest) and drag Helm to Applications. Node and the hub are inside the app, so there's nothing else to install.
+
+Helm isn't notarized by Apple yet, so macOS stops it the first time:
+
+1. Open Helm from Applications and click **Done** on the warning.
+2. Open System Settings → Privacy & Security, scroll down to "Helm was blocked", and click **Open Anyway**.
+
+You only do this once per version.
+
+**Or build it yourself** with Xcode:
 
 ```sh
 git clone https://github.com/vcazan/helm.git && cd helm
 mac/scripts/build.sh --install
 ```
 
-That builds **Helm.app**, with Node and the hub inside it, into `/Applications` and opens it. An Apple team isn't required; without one in `ios/Config/Local.xcconfig`, the app is signed to run on this Mac only. Run the same command after a `git pull` to update.
+That builds Helm.app into `/Applications` and opens it. An Apple team isn't required; without one in `ios/Config/Local.xcconfig`, the app is signed to run on this Mac only. Run the same command after a `git pull` to update. `mac/scripts/dmg.sh` builds the release DMG.
 
 <p align="center">
   <img src="docs/screenshots/mac-setup.png" width="360" alt="Helm's setup window on the Mac">
