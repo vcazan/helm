@@ -164,3 +164,7 @@ The hub also registers a `helm` MCP server in Cursor, so your regular Cursor cha
 ```sh
 cd hub && node test/e2e.mjs   # real agents: file edit, ask_user round trip, agent-to-agent relay
 ```
+
+## License
+
+[MIT](LICENSE). The bundled Inter and JetBrains Mono fonts are under the SIL Open Font License.
