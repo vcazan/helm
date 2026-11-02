@@ -60,6 +60,7 @@ function tool(name: string, params: any, raw: any, result: any): { name: string;
     case "run_terminal_command_v2": {
       if (typeof result.output === "string") meta.output = tail(result.output, 4000);
       if (typeof result.exitCode === "number") meta.exitCode = result.exitCode;
+      if (result.backgroundShellId != null) meta.terminal = String(result.backgroundShellId);
       return { name: "shell", args: { command: params.command, description: params.commandDescription, isBackground: params.isBackground }, meta };
     }
     case "read_file_v2":
@@ -106,12 +107,15 @@ export function desktopLiveTurns(composerId: string, working: boolean): LiveTurn
   if (!composerId) return [];
   try {
     const users: any[] = cursorDb()
-      .prepare(`SELECT key, json_extract(value,'$.text') text FROM cursorDiskKV WHERE rowid IN (${LAST_USER_ROWIDS(RECENT)}) ORDER BY json_extract(value,'$.createdAt') DESC`)
+      .prepare(
+        `SELECT rowid, key, json_extract(value,'$.text') text, json_extract(value,'$.createdAt') at FROM cursorDiskKV
+         WHERE rowid IN (${LAST_USER_ROWIDS(RECENT)}) ORDER BY json_extract(value,'$.createdAt') DESC`,
+      )
       .all(`bubbleId:${composerId}:`, `bubbleId:${composerId};`, `bubbleId:${composerId}:`.length + 1);
     return users
       .reverse()
       .filter((u) => u.key && typeof u.text === "string")
-      .map((u, i, all) => turn(composerId, u, working && i === all.length - 1))
+      .map((u, i, all) => turn(composerId, u, all[i + 1]?.at, working && i === all.length - 1))
       .filter((t): t is LiveTurn => !!t);
   } catch (e: any) {
     log.warn(`cursor live turns: ${e.message}`);
@@ -119,11 +123,15 @@ export function desktopLiveTurns(composerId: string, working: boolean): LiveTurn
   }
 }
 
-function turn(composerId: string, user: { key: string; text: string }, working: boolean): LiveTurn | undefined {
+function turn(composerId: string, user: { rowid: number; key: string; text: string; at?: string }, nextAt: string | undefined, working: boolean): LiveTurn | undefined {
   try {
     const db = cursorDb();
     const lo = `bubbleId:${composerId}:`;
-    // A turn's bubbles share its user bubble's key as a prefix: `<turn>`, `<turn>/s:N`, `<turn>/t:<call>`.
+    // A turn's bubbles usually share its user bubble's key as a prefix: `<turn>`, `<turn>/s:N`, `<turn>/t:<call>`.
+    // Chats that keep one agent run going across messages file every reply under that run's key
+    // instead, so anything written after this message and before the next one belongs to it too.
+    const from = Date.parse(user.at || "") || 0;
+    const until = Date.parse(nextAt || "") || Infinity;
     const rows: any[] = db
       .prepare(
         `SELECT key, json_extract(value,'$.createdAt') at, json_extract(value,'$.type') type, json_extract(value,'$.text') text,
@@ -131,9 +139,15 @@ function turn(composerId: string, user: { key: string; text: string }, working: 
                 json_extract(value,'$.toolFormerData.name') name, json_extract(value,'$.toolFormerData.status') status,
                 json_extract(value,'$.toolFormerData.toolCallId') call, json_extract(value,'$.toolFormerData.params') params,
                 json_extract(value,'$.toolFormerData.rawArgs') raw, substr(json_extract(value,'$.toolFormerData.result'), 1, 20000) result
-         FROM cursorDiskKV WHERE key >= ? AND key < ?`,
+         FROM cursorDiskKV WHERE key >= ? AND key < ? AND (key >= ? AND key < ? OR rowid > ?)`,
       )
-      .all(user.key, `${user.key}0`);
+      .all(lo, `bubbleId:${composerId};`, user.key, `${user.key}0`, user.rowid)
+      .filter((r: any) => {
+        if (r.key === user.key || String(r.key).startsWith(`${user.key}/`)) return true;
+        if (r.type === 1) return false;
+        const at = Date.parse(r.at) || 0;
+        return at >= from && at < until;
+      });
     rows.sort((a, b) => String(a.at).localeCompare(String(b.at)));
     const items: Item[] = [];
     for (const r of rows) {

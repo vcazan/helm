@@ -168,6 +168,7 @@ struct RootView: View {
         .overlay { if UserDefaults.standard.bool(forKey: "mcpGallery") { MCPGallery() } }
         .overlay { if UserDefaults.standard.bool(forKey: "mermaidGallery") { MermaidGallery() } }
         .overlay { if let r = UserDefaults.standard.string(forKey: "openChanges") { ChangesSheet(root: r) } }
+        .overlay { if let t = UserDefaults.standard.string(forKey: "openTerminal") { TerminalSheet(id: t).background(BUI.page) } }
         #endif
         .onAppear { if model.pairing != nil { model.connect() } }
     }

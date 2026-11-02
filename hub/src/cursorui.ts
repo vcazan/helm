@@ -12,7 +12,7 @@ import { lineDiff } from "./diff.ts";
 // --remote-debugging-port (see `cursor-cdp`); everything here degrades to "unavailable" otherwise.
 
 const CDP = `http://127.0.0.1:${process.env.CURSOR_CDP_PORT || 9222}`;
-const PROJECTS = path.join(HOME, ".cursor/projects");
+export const PROJECTS = path.join(HOME, ".cursor/projects");
 
 export type ChatStatus = "working" | "attention" | "done" | "idle";
 
@@ -884,7 +884,7 @@ export class CursorUI {
 
 const fileIndex = new Map<string, string>();
 
-function transcriptPath(composerId: string): string | undefined {
+export function transcriptPath(composerId: string): string | undefined {
   const cached = fileIndex.get(composerId);
   if (cached && fs.existsSync(cached)) return cached;
   for (const proj of fs.readdirSync(PROJECTS)) {

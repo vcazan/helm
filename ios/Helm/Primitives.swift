@@ -716,6 +716,9 @@ struct ToolChipsRun: View {
                         .lineLimit(1)
                         .truncationMode(.middle)
                     Spacer(minLength: 0)
+                    if t?.meta?.terminalStatus == "running" {
+                        TerminalLiveDot().transition(.opacity.combined(with: .scale(scale: 0.6)))
+                    }
                     if let a = p?.added, let r = p?.removed, a + r > 0 {
                         HStack(spacing: 4) {
                             Text("+\(a)").foregroundStyle(BUI.green)
@@ -747,6 +750,10 @@ struct ToolChipsRun: View {
             } else if let t = item.tool {
                 if t.status != "error", let path = ToolPresentation(t).file, DocumentRef.isDocument(path) {
                     DocumentCard(path: path, caption: "Open the document").padding(.bottom, 4)
+                }
+                if let term = t.meta?.terminal {
+                    TerminalCard(id: term, title: t.meta?.terminalTitle ?? ToolPresentation(t).chip.nilIfEmpty, status: t.meta?.terminalStatus)
+                        .padding(.bottom, 4)
                 }
                 if let err = t.meta?.error, !err.isEmpty {
                     Text(err).font(.jbMono(11.5)).foregroundStyle(BUI.red)

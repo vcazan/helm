@@ -40,6 +40,7 @@
 		C5F842C14A456091C1B1EC87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F44550306FA5A33BEFC537 /* Assets.xcassets */; };
 		CA86BAAE20C025C0F7BA1A39 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19BD4828448A5E56EC3909 /* AppModel.swift */; };
 		CF35D0E53AD41C22A56F6B96 /* QueueMotionLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E6234692E3E3FDE6D4A896 /* QueueMotionLab.swift */; };
+		DE84E4615E9DDE6B565F6263 /* TerminalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD74B0AA89AED5C06B5F965 /* TerminalViews.swift */; };
 		E1A6C9BD04F18CEACCDA7808 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA5B0AE0EABBEC041E4682BF /* Inter-Regular.ttf */; };
 		E51BC0F264E360EC3CA64711 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEF292325FDE05B984B9776 /* Models.swift */; };
 		E8245B924EB50B4BD79952B3 /* AgentChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DEAD0944EEB15855E24596 /* AgentChatView.swift */; };
@@ -77,6 +78,7 @@
 		1735A405FBFE61AB573F9C8D /* WaitCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitCard.swift; sourceTree = "<group>"; };
 		2417D42E9C37E23406AB0D82 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		24B72B744115112FC2781FF9 /* FolderBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderBrowser.swift; sourceTree = "<group>"; };
+		2FD74B0AA89AED5C06B5F965 /* TerminalViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalViews.swift; sourceTree = "<group>"; };
 		3016F15C7CA588EBB1EF0522 /* Helm.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Helm.xcconfig; sourceTree = "<group>"; };
 		326F689F9BFBCE5DAE4517C4 /* HelmWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelmWidgets.swift; sourceTree = "<group>"; };
 		45DEAD0944EEB15855E24596 /* AgentChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentChatView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				F0E6234692E3E3FDE6D4A896 /* QueueMotionLab.swift */,
 				2417D42E9C37E23406AB0D82 /* SettingsView.swift */,
 				F12E79AA19D206ED6B9DB153 /* SubagentViews.swift */,
+				2FD74B0AA89AED5C06B5F965 /* TerminalViews.swift */,
 				82B610A45B3D673E1BBF265B /* Theme.swift */,
 				1735A405FBFE61AB573F9C8D /* WaitCard.swift */,
 				BCB94117B5428BDC4FBB1CA3 /* WorkspaceView.swift */,
@@ -349,6 +352,7 @@
 				CF35D0E53AD41C22A56F6B96 /* QueueMotionLab.swift in Sources */,
 				F06AD2051C2017F814C61D61 /* SettingsView.swift in Sources */,
 				5E08F92DF4AF82605E5902C0 /* SubagentViews.swift in Sources */,
+				DE84E4615E9DDE6B565F6263 /* TerminalViews.swift in Sources */,
 				44607251A96238BFC2230034 /* Theme.swift in Sources */,
 				B6C73C95C16AD95E270A1B33 /* WaitCard.swift in Sources */,
 				A7DC639C359A0C81887A6079 /* WorkspaceView.swift in Sources */,

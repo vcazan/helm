@@ -214,15 +214,20 @@ export function startLiveActivities(cfg: () => ApnsConfig | undefined, ui: Curso
         if (d.activityToken) {
           const ask = state.rows.find((r) => r.state === "waiting");
           const alert = becameWaiting && ask ? { title: `${ask.name} needs you`, body: ask.detail || "Waiting for you" } : undefined;
-          const ok = await sendRaw(apns, d, d.activityToken, topic, "liveactivity", priority, payload(active ? "update" : "end", state, alert));
+          const ok = (await sendRaw(apns, d, d.activityToken, topic, "liveactivity", priority, payload(active ? "update" : "end", state, alert))) === "ok";
           if (!ok || !active) {
             d.activityToken = undefined;
             store.upsertDevice(d);
           }
         } else if (active && d.activityStartToken) {
           const first = state.rows[0];
-          const ok = await sendRaw(apns, d, d.activityStartToken, topic, "liveactivity", "10", payload("start", state, { title: first.name, body: first.detail || (first.state === "waiting" ? "Needs you" : "Working") }));
-          if (ok) log.info(`live activity started on ${d.name}`);
+          const r = await sendRaw(apns, d, d.activityStartToken, topic, "liveactivity", "10", payload("start", state, { title: first.name, body: first.detail || (first.state === "waiting" ? "Needs you" : "Working") }));
+          if (r === "ok") log.info(`live activity started on ${d.name}`);
+          // The app hands over a fresh start token next time it opens.
+          if (r === "bad") {
+            d.activityStartToken = undefined;
+            store.upsertDevice(d);
+          }
         }
       }),
     );

@@ -19,6 +19,7 @@ import { makeDir, searchDirs, githubRepos, startClone } from "./github.ts";
 import { log } from "./log.ts";
 import { activeWait, desktopWait, withWait } from "./wait.ts";
 import { desktopLiveTurns, withLiveTurns } from "./liveturn.ts";
+import { projectTerminals, readTerminal, withTerminals } from "./terminals.ts";
 
 const folderKey = (folders: string[]) => [...folders].sort().join("\n");
 
@@ -307,9 +308,17 @@ export function startServer(cfg: HubConfig, agents: AgentManager) {
     const turns = desktopLiveTurns(composerId, working);
     const base = withWait(withLiveTurns(t?.items || [], turns, composerId), desktopWait(composerId));
     linkSubagents(base, subagents);
-    const all = withImages(asAgentMessages(withRememberedResults([...base, ...orphanSubagents(composerId, base, subagents)])));
+    const all = withTerminals(withImages(asAgentMessages(withRememberedResults([...base, ...orphanSubagents(composerId, base, subagents)]))), composerId);
     const items = tailOf(all, Number(query.get("tail")) || 0);
     return { composerId, items, total: all.length, updatedAt: t?.updatedAt, live, liveTurn: turns.some((x) => x.items.length > 0), queued: desktopQueue(composerId), subagents };
+  });
+
+  route("GET", "/api/desktop/terminals", ({ query }) => ({ terminals: projectTerminals(query.get("composerId") || "") }));
+
+  route("GET", "/api/desktop/terminals/:id", ({ params, query }) => {
+    const t = readTerminal(params.id, query.get("composerId") || undefined, Number(query.get("from")) || 0);
+    if (!t) throw new HttpError(404, "That terminal is gone");
+    return t;
   });
 
   route("GET", "/api/desktop/subagents/:id", ({ params }) => {

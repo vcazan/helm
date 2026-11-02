@@ -57,6 +57,8 @@ export interface Device {
   apnsToken?: string;
   apnsEnv: "sandbox" | "production";
   activityToken?: string;
+  /** The APNs environment Live Activity tokens turned out to belong to, when it isn't `apnsEnv`. */
+  activityEnv?: "sandbox" | "production";
   activityStartToken?: string;
   lastSeenAt: number;
 }

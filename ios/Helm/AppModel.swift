@@ -292,6 +292,10 @@ final class AppModel {
         return try await request("GET", path)
     }
 
+    func terminal(_ id: String, from: Int = 0) async throws -> TerminalOutput {
+        try await request("GET", "/api/desktop/terminals/\(id)?from=\(from)")
+    }
+
     func subagent(_ id: String) async throws -> Subagent {
         try await request("GET", "/api/desktop/subagents/\(id)")
     }

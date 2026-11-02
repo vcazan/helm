@@ -96,10 +96,34 @@ function sendOne(cfg: ApnsConfig, dev: Device, msg: PushMessage): Promise<void> 
   });
 }
 
-/** Sends any APNs payload (e.g. Live Activity updates) to a specific token. Resolves true on 200. */
-export function sendRaw(cfg: ApnsConfig, dev: Device, token: string, topic: string, pushType: string, priority: string, body: object): Promise<boolean> {
-  if (!pushEnabled(cfg)) return Promise.resolve(false);
-  const host = dev.apnsEnv === "production" ? "api.push.apple.com" : "api.sandbox.push.apple.com";
+/**
+ * Sends any APNs payload (e.g. Live Activity updates) to a specific token. Resolves "ok" on 200 and "bad"
+ * when Apple rejects the token itself. Live Activity tokens don't always come from the same APNs
+ * environment as the app's alert token, so a rejected token gets one try on the other environment.
+ */
+export async function sendRaw(cfg: ApnsConfig, dev: Device, token: string, topic: string, pushType: string, priority: string, body: object): Promise<"ok" | "bad" | "failed"> {
+  if (!pushEnabled(cfg)) return "failed";
+  const env = dev.activityEnv || dev.apnsEnv;
+  const first = await sendTo(cfg, dev, env, token, topic, pushType, priority, body);
+  if (first.status === 200) return "ok";
+  if (!/BadDeviceToken/.test(first.text)) {
+    log.warn(`apns ${pushType} ${first.status} for ${dev.name}: ${first.text}`);
+    return "failed";
+  }
+  const other = env === "production" ? "sandbox" : "production";
+  const second = await sendTo(cfg, dev, other, token, topic, pushType, priority, body);
+  if (second.status === 200) {
+    log.info(`apns ${pushType}: ${dev.name}'s token is for ${other}, using that from now on`);
+    dev.activityEnv = other;
+    store.upsertDevice(dev);
+    return "ok";
+  }
+  log.warn(`apns ${pushType} token for ${dev.name} rejected by both environments: ${first.text}`);
+  return "bad";
+}
+
+function sendTo(cfg: ApnsConfig, dev: Device, env: Device["apnsEnv"], token: string, topic: string, pushType: string, priority: string, body: object): Promise<{ status: number; text: string }> {
+  const host = env === "production" ? "api.push.apple.com" : "api.sandbox.push.apple.com";
   return new Promise((resolve) => {
     let req: http2.ClientHttp2Stream;
     try {
@@ -112,18 +136,15 @@ export function sendRaw(cfg: ApnsConfig, dev: Device, token: string, topic: stri
         "apns-priority": priority,
       });
     } catch (e: any) {
-      log.warn(`apns request failed: ${e.message}`);
-      return resolve(false);
+      log.warn(`apns request failed for ${dev.name}: ${e.message}`);
+      return resolve({ status: 0, text: e.message });
     }
     let status = 0;
     let text = "";
     req.on("response", (h) => (status = Number(h[":status"])));
     req.on("data", (d) => (text += d));
-    req.on("end", () => {
-      if (status !== 200) log.warn(`apns ${pushType} ${status} for ${dev.name}: ${text}`);
-      resolve(status === 200);
-    });
-    req.on("error", () => resolve(false));
+    req.on("end", () => resolve({ status, text }));
+    req.on("error", (e) => resolve({ status: 0, text: e.message }));
     req.setTimeout(15_000, () => req.close());
     req.end(JSON.stringify(body));
   });

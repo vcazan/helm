@@ -135,6 +135,31 @@ struct ToolMeta: Codable, Hashable {
     var waitUntil: Double?
     var waitLabel: String?
     var images: [String]?
+    /// The terminal a background shell call left running, and how it's doing.
+    var terminal: String?
+    var terminalStatus: String?
+    var terminalTitle: String?
+}
+
+/// A terminal an agent started. `next` is where the following read picks up; `append` says
+/// whether `output` continues the last read or replaces it.
+struct TerminalOutput: Codable, Hashable {
+    var id: String
+    var title: String?
+    var command: String?
+    var cwd: String?
+    var status: String
+    var exitCode: Int?
+    var startedAt: Double?
+    var endedAt: Double?
+    var elapsedMs: Double?
+    var output: String
+    var append: Bool
+    var truncated: Bool
+    var next: Int
+
+    var running: Bool { status == "running" }
+    var failed: Bool { !running && (status == "failed" || (exitCode ?? 0) != 0) }
 }
 
 struct ToolInfo: Codable, Hashable {
